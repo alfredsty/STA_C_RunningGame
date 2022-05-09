@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour //2단점프 코드 갈기
 {
 
     [SerializeField] float jumpForce = 600f;
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
     }
+
     void Movement()
     {
         if(rb.velocity.y == 0)
@@ -60,6 +61,6 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector2.up * jumpForce);
     }
 
-
+    
 
 }
