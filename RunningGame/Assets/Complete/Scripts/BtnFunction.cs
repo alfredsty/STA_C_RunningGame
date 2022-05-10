@@ -2,35 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+using UnityEngine.SceneManagement;
+public class BtnFunction : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
-    public BTNType current;
     public Transform buttonScale;
     Vector3 defaultScale;
-    public void OnBtnClick()
+
+    public void ChangeSceneBtn()
     {
-        switch (current)
+        switch (this.gameObject.name)
         {
-            case BTNType.New:
-                Debug.Log("새게임하기");
+            case "StartBtn":
+                SceneManager.LoadScene("StartGame");
                 break;
 
-            case BTNType.Back:
-                Debug.Log("뒤로가기");
+            case "GameStartBtn":
+                SceneManager.LoadScene("InGame");
                 break;
+            case "QuitBtn":
+                Application.Quit();
+                break;
+                
 
-            case BTNType.Continue:
-                Debug.Log("계속하기");
-                break;
 
-            case BTNType.Option:
-                Debug.Log("옵션가기");
-                break;
 
-            case BTNType.Quit:
-                Debug.Log("나가기");
-                break;
         }
     }
 
