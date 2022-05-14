@@ -13,21 +13,18 @@ public class BtnFunction : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
         switch (this.gameObject.name)
         {
             case "StartBtn":
-                SceneManager.LoadScene("StartGame");
+                SceneManager.LoadScene("StartGame1");
                 break;
 
             case "GameStartBtn":
                 SceneManager.LoadScene("InGame");
                 break;
-            case "QuitBtn":
-                Application.Quit();
-                break;
-                
-
-
+            
 
         }
     }
+
+    
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -42,5 +39,16 @@ public class BtnFunction : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
     private void Start()
     {
         defaultScale = buttonScale.localScale;
+    }
+
+    public void GameQuit()
+    {
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
+
     }
 }
