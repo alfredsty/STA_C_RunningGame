@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour //2단점프 코드 갈기
 {
 
-    private Rigidbody2D rigid; //?????? ??????????2D
-    private Animator anim; //??????????
-    private SpriteRenderer rend; //?????????? ??????
+    private Rigidbody2D rigid;
+    private Animator anim;
+    private SpriteRenderer rend;
     private BoxCollider2D boxColl;
     float collOffset, collSize;
 
-    private AudioSource audioSource; //?????? ?????? ????????
-    public AudioClip jumpAudio, slideAudio, collAudio; //?????? ????
+    private AudioSource audioSource;
+    public AudioClip jumpAudio, slideAudio, collAudio;
 
-    public int jumpCount = 0; //???? ????
+    public int jumpCount = 0;
 
-    enum Sound //?????? ???? ????
+    enum Sound
     {
         Jump, Slide, Coll
     };
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour //2단점프 코드 갈기
         }
         else
         {
-            if (!anim.GetBool("Sliding")) //???????? ???? ????
+            if (!anim.GetBool("Sliding"))
                 return;
 
             anim.SetBool("Sliding", false);
